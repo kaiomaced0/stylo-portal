@@ -1,0 +1,22 @@
+<div class="card">
+  <p-carousel
+    [value]="midias"
+    [numVisible]="3"
+    [numScroll]="1"
+    [circular]="true"
+    [autoplayInterval]="3000"
+    styleClass="custom-carousel"
+  >
+    <ng-template let-midia pTemplate="item">
+      <div class="flex justify-center items-center flex-col">
+        <a [href]="midia.link" target="_blank" rel="noopener noreferrer">
+          <img
+            [src]="midia.image"
+            [alt]="'Mídia ' + midia.id"
+            class="w-full h-48 object-cover rounded-lg shadow-lg"
+          />
+        </a>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
