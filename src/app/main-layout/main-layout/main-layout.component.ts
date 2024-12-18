@@ -1,11 +1,11 @@
-import { NgClass, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavItem } from '../../../../models/navitem.models';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgClass],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.css',
   standalone: true
@@ -26,10 +26,21 @@ export class MainLayoutComponent implements OnInit{
   ];
 
   isMenuOpen: boolean = false;
+  activeRoute: string = '/';
 
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
+    // Escuta as mudanças de rota para atualizar o item ativo
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.activeRoute = event.url;
+      }
+    });
+  }
+
+  navigateTo(item: NavItem): void {
+    this.router.navigate([item.name === 'Home' ? '/' : `/noticias/${item.id!}`]);
   }
 
   toggleMenu(): void {

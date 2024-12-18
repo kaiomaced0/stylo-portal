@@ -1,0 +1,48 @@
+.carrossel {
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-container {
+    position: relative;
+    /* Define o container do carrossel como referência para o posicionamento absoluto das setas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 60%;
+    /* Largura inicial do carrossel */
+    margin: auto;
+    /* Centraliza o carrossel horizontalmente */
+    max-width: 1150px;
+}
+
+img {
+    max-width: 100%;
+    /* Garante que a imagem não exceda a largura do container */
+    display: block;
+    /* Remove espaços extras abaixo da imagem */
+    max-height: 300px;
+}
+
+
+.carousel-slide {
+    cursor: pointer;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.left-arrow,
+.right-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+    /* Assegura que as setas estejam acima das imagens */
+}

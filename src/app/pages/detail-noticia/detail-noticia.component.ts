@@ -2,11 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Conteudo } from '../../../../models/conteudo.models';
-import { NgIf } from '@angular/common';
-
 @Component({
   selector: 'app-detail-noticia',
-  imports: [NgIf],
+  imports: [],
   templateUrl: './detail-noticia.component.html',
   styleUrl: './detail-noticia.component.css',
   standalone: true
